@@ -4,10 +4,47 @@
 }
 
 body {
-	background-color: #33ddaa;
+	background-color: #fff;
 }
 
 h1 {
 	font-family:'Comic Sans MS', cursive, sans-serif;
+	color: #000;
+}
+
+.logo {
+	border-radius: 50%;
+	width: 80px;
+	display: inline-block;
+}
+
+.title {
+	display: inline-block;
+}
+main {
+	min-height: 400px;
+}
+.container {
+	position: relative;
+	text-align: center;
+	color: #000;
+	font-size: 48px;
+}
+.centered {
+	position: absolute;
+	top: 5%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+p.centered {
+	border-radius: 2%;
+	background-color: rgba(0,0,0,.4);
 	color: #fff;
+	margin-top:250px;
+}
+footer {
+	font-family:'Comic Sans MS', cursive, sans-serif;
+	background-color: brown;
+	color: white;
+	min-height: 300px;
 }

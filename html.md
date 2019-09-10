@@ -38,6 +38,7 @@ To make our changes applied we need to commit it. After a commit we can check "H
 Register for a free account on github.com, in this manner we can push our code on github. It is also use as a backup tool.
 
 # Editor
+
 [Download it](https://code.visualstudio.com/)
 There are a bunch of good editors you can use on Win, Mac and Linux such as Sublime, Atom, Webstorm and Visual Studio Code. I can suggest the last two editors, the first one is a complete IDE you can use for non commercial project, the second is an open source editor from Microsoft, it is the most used by developers.
 
@@ -71,6 +72,8 @@ Finally we need DOCTYPE tag, that identify our document:
 </body>
 </html>
 ```
+
+When we had to write a more complex website, it's useful to use something like a wireframe software or paper and pen and do something like a sketch of the elements of the webpage ![Wireframe](https://d33wubrfki0l68.cloudfront.net/dbb80f2f6a5dafa25f702ad00bc429057fb59cec/52716/en/blog/uploads/versions/samuel-student-wireframe---x----972-715x---.png)
 
 # Style
 
