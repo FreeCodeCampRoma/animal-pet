@@ -201,6 +201,16 @@ h1 {
 
 ```
 
+# Media Query
+
+Don't forget to put in head tag:
+
+```html
+<meta name="viewport" content="width=device-width, initial-scale=1">
+```
+
+or you media query maybe can't works!!!
+
 # CSS Grid
 
 Is a new feature of CSS specification, that allow us to position elements in two-way mode, instead of one-way mode of flexbox. In flexbox you can position your elements between a main axis and a cross axis. So, basically, you have a row and a column. We can configure flexbox two wrap more content in two rows or more rows (or columns), but is still one dimensional: a row of items or a column of items. With grid we have a real multi dimensional layout.
