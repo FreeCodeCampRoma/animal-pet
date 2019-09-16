@@ -73,6 +73,23 @@ Finally we need DOCTYPE tag, that identify our document:
 </html>
 ```
 
+The very basic HTML structure is:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <title>Basic HTML valid structure</title>
+  </head>
+
+  <body>
+    <!-- Web Page Content -->
+  <body>
+
+</html>
+```
+
 When we had to write a more complex website, it's useful to use something like a wireframe software or paper and pen and do something like a sketch of the elements of the webpage ![Wireframe](https://d33wubrfki0l68.cloudfront.net/dbb80f2f6a5dafa25f702ad00bc429057fb59cec/52716/en/blog/uploads/versions/samuel-student-wireframe---x----972-715x---.png)
 
 # Style
@@ -99,5 +116,105 @@ We can apply our custom CSS rule in three ways (in order of precedence if I have
 ```
 
 We can add styles by selecting a specific element such as by tagname or by identification attribute, or by selection all certain kind of element such as all h1 or p element or by selecting elements in a certain position such as all the descend of a specific element or class of elements, or selecting elements with some attribute and value. 
-We have a lot of **selectors** with some advance uses or universal selctor with '*'.
+We have a lot of **selectors** with some advance uses or universal selctor with `*`.
 Remember, every browsers has his set of default values for styling.
+
+You need to know that CSS Selectors (tag name selector, pseudo element selector, class selector, attribute selector, id selector, etc...) have different specificity in order to determine which style is applied to an element. The more specific a CSS style is, the higher point value it result. You can read more [here](https://dev.to/emmawedekind/css-specificity-1kca).
+You also need to know the different between HTML tag selector and BODY tag selector. You can read more [here](https://css-tricks.com/html-vs-body-in-css/).
+It's a best practice to use rem unit relative to the font-size of the html element, which is the document root.
+
+The default size of font is 16px, so there's a convinient way to set font-size on bdoy at 62.5%, so you can adjsut the other font-size elements with a base size of 10px instead of 16px. So for others element you can use a size of 1.4em to have 14px or 1.4rem. Beware of using em instead try to use rem (root em) introduced by CSS3.
+The em unit is relative to the font-size of the parent, which causes the compounding issue. The rem unit is relative to the root—or the html—element. That means that we can define a single font size on the html element and define all rem units to be a percentage of that.
+So in this case we set 62.5% of font-size on the html tag element instead of body. We now have consistent and predictable sizing in all browsers, and resizable text in the current versions of all major browsers. [Read More](https://snook.ca/archives/html_and_css/font-size-with-rem)
+
+# External Custom Style
+
+So we can create our custom style and add it to our page. Create a file called 'style.css' and add to index.html with: 
+```html
+<head>
+	<link rel="stylesheet" href="style.css">
+</head>
+```
+
+```css
+html {
+  background-color: green;
+}
+
+body {
+  background-color: yellow;
+}
+```
+
+The body element doens't expand to cover the whole page.
+The html element will use the backogrund color of body element, if its own is computed as transparent or none.
+By default, body element has some margin from borders and the height is set based on its content.
+
+```css
+html {
+  background-color: green;
+  border: 1px solid red;
+}
+
+body {
+  border: 1px solid blue;
+}
+```
+
+as you can see body element is collapsed in one line and the html background color is bleeds past its border because the background color is propagated to the viewport, which is the canvas containing all the HTML elements.
+You have a height of html because of the default body margin property.
+
+The wildcard selector ( * ) selects ALL the elements in your document, including tags like html, body, p, h1, h2, h3, h4, h5, h6, form, input, button, textarea, select, option, legend, fieldset…I won’t list the entire reference, but you get the idea. Using the wildcard selector is bad practise in general.
+
+I can reccomend to use a reset or normalize css in order to have gaininig control, predicatability and uniformity of your stylesheet.
+
+So, let's start to write some style:
+
+```css
+html {
+	font-size: 65.5%;
+	box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+body {
+	font-family: 'Josefin Sans','Comic Sans MS', cursive, sans-serif;
+	font-size: 1.6rem; /* =16px */
+	margin: 0;
+}
+
+main, header, div, h1, h2, h3, h4, h5, h6, p, footer, section, a, ul {
+	margin: 0;
+	padding: 0;
+}
+
+a {
+	text-decoration: none;
+}
+
+ul {
+	list-style: none;
+}
+
+h1 {
+	font-size: 2.4rem; /* =24px */
+}
+
+```
+
+# CSS Grid
+
+Is a new feature of CSS specification, that allow us to position elements in two-way mode, instead of one-way mode of flexbox. In flexbox you can position your elements between a main axis and a cross axis. So, basically, you have a row and a column. We can configure flexbox two wrap more content in two rows or more rows (or columns), but is still one dimensional: a row of items or a column of items. With grid we have a real multi dimensional layout.
+
+We can set a display to grid by using the value `grid` on display propery of a div, for example:
+
+```
+header {
+	display: grid
+}
+```
+
+same as using flexbox. I guess nothing change after this set, because the default behavior is to create, for each block element, a row. Same as flex.
+
+# Tips
+
+[Remove margin from li displayed inline](https://stackoverflow.com/questions/20805028/how-to-remove-the-default-margin-of-inline-li-elements)
