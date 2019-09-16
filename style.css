@@ -138,7 +138,7 @@ footer li {
 	display: inline-block;
 }
 
-@media screen and (min-width: 610px) {
+@media (min-width: 610px) {
 
 	body {
 		display: grid;
@@ -194,7 +194,7 @@ footer li {
 	}
 }
 
-@media screen and (min-width: 1045px) {
+@media (min-width: 1045px) {
 
 	header img {
 		position: absolute;
