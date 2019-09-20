@@ -201,6 +201,54 @@ h1 {
 
 ```
 
+# EM vs REM
+
+EM and REM are relative units font size to make it sensitive to the size of container. With em there is a downside, because it it's inherited and, with multiple nested elements that override the font size in em, we can lost the control:
+
+```html
+<div class="level-1">
+  <div class="level-2">
+    <div class="level-3">
+      <p>Hello!</p>
+    </div>
+  </div>
+</div>
+html {
+  font-size: 20px;
+}
+```
+```css
+.level-1, .level-2 {
+  font-size: 0.5em;
+}
+ 
+.level-3 {
+  font-size: 2em;
+}
+```
+
+The font-size of Hello will be 10px, because I've 3 nested divs, the first with 20px, then I need to divide by 0.5 2 times = 5px, then multiply by 2 = 10px.
+With CSS3 we have REM (Root EM) that refers to the em size of the root element.
+
+Some read: [here](https://mindtheshift.wordpress.com/2015/04/02/r-i-p-rem-viva-css-reference-pixel/)
+
+# Responsive Web Design
+
+Create one web experience for both users and web designers to allow a better user experience on any devices and browsers. We have the same experience, it just might look a bit different for different media. We can reshape the layout of our web based on the size of the screen, thanks to the new features of CSS3 such as Media Queries, Flexbox and CSS Grid. No more headache with floats or bad fixed design layout with different CSS.
+Every Responsive Web Design is based on three features: Fluid Grid, Responsive Images, Adjustable Layout. All three features share a common behavior: be flexible.
+We don't design a web site for just one screen size. We design webiste for different size but also for different device and, with the right design, we can improve also web accessibility and be more aderents to the web standards which mean that people with disabilities are also able to use the web.
+
+When we design for the web, we are designing for an infinite canvas. We have smartphone, smart TV, tables, smart watch, netbook, notebook, desktop, ultra wide monitor, etc...
+
+# Responsive Images
+
+The main idea on how to have a responsive images is to resize images, however, simply resizing imanges, means that user may will download pictures still large in terms of byte size for some devices/networks. Delivery large images for devices with low resolutions doesn't make any sense. We need to send a smaller image.
+The img tag only provides a single source, so we need to know how we can reach this important goal to have a better website for our users.
+Resolution switching means we have the same images, with the same pixel ratio and without any modification to the content. You will send the image based on the display density and the size of viewport.
+When you resize the image, you need to check if the content is still significant. Sometimes you need to crop the image to gaurantee the same focus of the photo on different size or check if in landscape or portait we need to make some adjustment.
+
+So, we need multiple source to handle multiple images of one image and img tag is insufficient.
+
 # Media Query
 
 Don't forget to put in head tag:
@@ -210,6 +258,17 @@ Don't forget to put in head tag:
 ```
 
 or you media query maybe can't works!!!
+
+# Flexbox
+
+We can use this property by setting the property dispaly at flex or inline-flex as value. With inline-flex our container adapt its width size to the size of what it contains, while with flex my container can have some space inside if the contents is smaller than its size. For example, if I have 5 box, with flex I can have some space in my flex container, with inline-flex my container adapt its size.
+We have two kind of properties: one group affects all the children the other affect only one children of flex container.
+The first property we need to know flex-direction (default value is raw). It will affects all the children within flex container.
+
+# The fr unit
+
+With CSS Grid Layout we will use most of the time the fr flexible unit that deals to distribuiting space in a grid container. You can use px (fixed grid) or % (flexible grid), maybe you can think to use % to have the same flexible results of fr, but if you need to add a column, with percentage you need to recalculate all the values, while with fr you can add and remove columns quicky. So, with CSS Grid Layout, most of the time you will use fr flexible unit, to have a responsive layout.
+You can define columns with a mix of px and fr to have more control on which column need to be fixed and which one can resize.
 
 # CSS Grid
 
@@ -224,7 +283,10 @@ header {
 ```
 
 same as using flexbox. I guess nothing change after this set, because the default behavior is to create, for each block element, a row. Same as flex.
+The main property we will use is `grid-template-columns`, with this property we can set how many columns we have and the size of each one.
 
 # Tips
 
 [Remove margin from li displayed inline](https://stackoverflow.com/questions/20805028/how-to-remove-the-default-margin-of-inline-li-elements)
+[Browser Support](https://caniuse.com)
+[Vendor Prefixes for Browser Support for new features](https://bitsofco.de/css-vendor-prefixes/)
